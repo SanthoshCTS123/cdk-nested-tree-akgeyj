@@ -35,9 +35,7 @@ export class TreeNestedDataSource<T> extends DataSource<T> {
   }
 }
 
-/**
- * Json node data with nested structure. Each node has a filename and a value or a list of children
- */
+
 export class FileNode {
   children: FileNode[];
   filename: string;
@@ -67,34 +65,6 @@ export class MytreeComponent implements OnInit {
       filetype: 145,
       children: [],
     },
-    {
-      filename: 'compoundfile2',
-      filetype: 145,
-      children: [
-        {
-          filename: 'compoundfile3',
-          filetype: 145,
-          children: [
-            {
-              filename: 'compoundfile4',
-              filetype: 145,
-              children: [
-                {
-                  filename: 'flatfile5',
-                  filetype: 144,
-                  children:[]
-                },
-                {
-                  filename: 'flatfile6',
-                  filetype: 144,
-                  children:[]
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
   ];
 
   public newchild = {
@@ -108,41 +78,83 @@ export class MytreeComponent implements OnInit {
     children:[]
   };
 
+  public compoundfiles_array = [
+    {
+      filename: 'compoundfile-addedonDemand_1',
+      filetype: 145,
+      children: []
+    },
+    {
+      filename: 'compoundfile-addedonDemand_2',
+      filetype: 145,
+      children: []
+    },
+    {
+      filename: 'compoundfile-addedonDemand_3',
+      filetype: 145,
+      children: []
+    },
+    {
+      filename: 'compoundfile-addedonDemand_4',
+      filetype: 145,
+      children: []
+    },
+    {
+      filename: 'compoundfile-addedonDemand_5',
+      filetype: 145,
+      children: []
+    },
+    {
+      filename: 'compoundfile-addedonDemand_6',
+      filetype: 145,
+      children: []
+    }
+  ]
+
 
 
   mydatasource: TreeNestedDataSource<FileNode>;
   nestedTreeControl: NestedTreeControl<FileNode>;
+  selectedFileName: string;
+  childtraversernum: number = 0;
 
   private _getChildren = (node: FileNode) => observableOf(node.children);
   hasNestedChild = (_: number, nodeData: FileNode) => !nodeData;
 
   constructor(private datasource: TreeNestedDataSource<FileNode>) {
-
-
     this.mydatasource = datasource;
     this.mydatasource._data.next(this.Filess)
-
     this.nestedTreeControl = new NestedTreeControl<FileNode>(this._getChildren);
   }
 
 
 
-  addNewItem(node) {
+  addChildNodes(node) {
+    if (node.filetype == 144) {
+      this.selectedFileName = node.filename;
+    } else {
+      debugger;
+      if (this.nestedTreeControl.isExpanded(node).valueOf() == true) {
+        // node.children.push(this.newchild);
+        // node.children.push(this.newchild_compundfile);
 
-    console.log(node)
-   
-    //node.children.push(this.newchild_compundfile)
- 
-    console.log(node)
-    this.mydatasource._data.next([])
-    this.mydatasource._data.next(this.Filess)
+        node.children.push(this.compoundfiles_array[this.childtraversernum]);
+        this.childtraversernum++;
+      } else {
+        this.childtraversernum--;
+        node.children = [];
+      }
 
+      console.log(this.nestedTreeControl.isExpanded(node).valueOf());
+      console.log(this.Filess);
 
+      this.mydatasource._data.next([]);
+      this.mydatasource._data.next(this.Filess); 
 
-    if (!this.nestedTreeControl.isExpanded(node).valueOf() == true)
-      this.nestedTreeControl.collapseDescendants(node);
+      if (!this.nestedTreeControl.isExpanded(node).valueOf() == true)
+        this.nestedTreeControl.collapseDescendants(node);
+    }
   }
-
   ngOnInit() {
   }
 }

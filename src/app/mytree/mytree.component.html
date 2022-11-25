@@ -5,7 +5,7 @@
       class="example-tree-node"
       
     >
-      <div cdkTreeNodeToggle class="navigate1 panelParent" (click)="addNewItem(node)">
+      <div cdkTreeNodeToggle class="navigate1 panelParent" (click)="addChildNodes(node)">
         {{ node.filename }}
         <div class="navigate2" *ngIf="node.filetype != 144">
           {{ nestedTreeControl.isExpanded(node) ? 'v' : '<' }}
