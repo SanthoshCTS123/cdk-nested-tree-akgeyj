@@ -130,7 +130,7 @@ export class MytreeComponent implements OnInit {
   addNewItem(node) {
 
     console.log(node)
-
+   
     //node.children.push(this.newchild_compundfile)
  
     console.log(node)
