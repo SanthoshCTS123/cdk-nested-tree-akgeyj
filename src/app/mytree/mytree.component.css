@@ -1,22 +1,6 @@
-
-.example-tree-invisible {
-  display: none;
-}
-
-.example-tree ul,
-.example-tree li {
-  margin-top: 0;
-  margin-bottom: 0;
-  list-style-type: none;    
-}
-
 .example-tree-node {
   display: block;
   padding-left: 40px;
-}
-
-.cdk-tree-node {
-    border:0;
 }
 
 .panelParent {
@@ -38,82 +22,70 @@
   padding: 10px;
   padding-right: 3rem;
   text-align: left;
-  width: fit-content
+  width: fit-content;
 }
 
-.navigate1
-{
+.navigate1 {
   display: inline-block;
   vertical-align: middle;
 }
 
-.navigate2
-{
+.navigate2 {
   display: inline-block;
   vertical-align: middle;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.previewbox {
+  border: 2px solid black;
+  padding: 10px;
+  padding-right: 3rem;
+  text-align: left;
+  width: 100%;
+}
 
 .tree-invisible {
-    display: none;
-  }
-  .tree-node {
-    display: block;
-  }
+  display: none;
+}
+.tree-node {
+  display: block;
+}
 
+.panelParent {
+  font-size: 16px;
+  color: #303741;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-left: 7px;
+  line-height: 1.3em;
+  padding-right: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
 
-  .panelParent {
-    font-size: 16px;
-    color: #303741;
-    font-weight: 600;
-    margin-top: 12px;
-    margin-left: 7px;
-    line-height: 1.3em;
-    padding-right: 7px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    position: relative;
-  }
+.wrap {
+  border: 2px solid black;
+  padding: 10px;
+  padding-right: 3rem;
+  text-align: left;
+  width: fit-content;
+}
 
-  .wrap {
-    border: 2px solid black;
-    padding: 10px;
-    padding-right: 3rem;
-    text-align: left;
-    width: fit-content
-  }
-  
-  .navigate1
-  {
-    display: inline-block;
-    vertical-align: middle;
-  }
+.navigate1 {
+  display: inline-block;
+  vertical-align: middle;
+}
 
-  .navigate2
-  {
-    display: inline-block;
-    vertical-align: middle;
-  }
+.navigate2 {
+  display: inline-block;
+  vertical-align: middle;
+}
 
-  
+.previewbox{
+  border: 2px solid black;
+  padding-top: 150px;
+  text-align: center;
+  width: 400px;
+  height: 200px;
+}

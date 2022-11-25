@@ -1,24 +1,22 @@
 <div class="wrap">
   <cdk-tree [dataSource]="mydatasource" [treeControl]="nestedTreeControl">
-    <cdk-nested-tree-node
-      *cdkTreeNodeDef="let node; when: hasNestedChild"
-      class="example-tree-node"
-      
-    >
+    <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasNestedChild" class="example-tree-node">
       <div cdkTreeNodeToggle class="navigate1 panelParent" (click)="addChildNodes(node)">
         {{ node.filename }}
         <div class="navigate2" *ngIf="node.filetype != 144">
-          {{ nestedTreeControl.isExpanded(node) ? 'v' : '<' }}
+          {{ nestedTreeControl.isExpanded(node) ? 'v' : '<' }} </div>
         </div>
-      </div>
 
-   
-
-     
-
-      <div [hidden]="!nestedTreeControl.isExpanded(node)">
-        <ng-container cdkTreeNodeOutlet></ng-container>
-      </div>
+        <div [hidden]="!nestedTreeControl.isExpanded(node)">
+          <ng-container cdkTreeNodeOutlet></ng-container>
+        </div>
     </cdk-nested-tree-node>
   </cdk-tree>
+</div>
+
+<p>
+<p>
+
+<div *ngIf="selectedFileName" class="previewbox">
+  File Preview: {{selectedFileName}}
 </div>
