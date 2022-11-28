@@ -135,15 +135,26 @@ export class MytreeComponent implements OnInit {
       this.selectedFileName = node.filename;
     } else {
       debugger;
-       if (this.nestedTreeControl.isExpanded(node).valueOf() == true) {
-      //    node.children.push(this.newchild);
-      //   node.children.push(this.newchild_compundfile);
+      if (this.nestedTreeControl.isExpanded(node).valueOf() == true) {
 
-        node.children.push(this.compoundfiles_array[this.childtraversernum]);
-        this.childtraversernum++;
-      } else {
-        this.childtraversernum--;
-        node.children = [];
+        //ADDING CHILD NODES ON DEMAND
+        //(In our project scenario fetching child nodes will be done in an API Call)
+
+        //Uncomment respectives scenarios
+        //1. One Flatfile inside a folder
+        //  node.children.push(this.newchild);
+
+        //2.One Flatfile and One compound file inside a compound file
+        //  node.children.push(this.newchild);
+        //  node.children.push(this.newchild_compundfile);
+
+        //3 nested compound files (Uncomment till 144)
+        //   node.children.push(this.compoundfiles_array[this.childtraversernum]);
+        //   this.childtraversernum++;
+        // } else {
+        //   this.childtraversernum--;
+        //   node.children = [];
+
       }
       console.log(this.nestedTreeControl.isExpanded(node).valueOf());
       console.log(this.Filess);
